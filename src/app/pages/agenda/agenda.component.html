@@ -1,0 +1,51 @@
+<div class="object-cover absolute w-full min-h-full bg-cover "
+  style="background-image: url('../../../assets/bg1.png');">
+  <div class="flex justify-center my-24">
+    <div
+      class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-[#91633f] bg-opacity-40  shadow-lg lg:min-w-[56rem]">
+      <img
+        class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg lg:min-w-[19rem]"
+        src="../../../assets/agenda.jpg" alt="" />
+      <div class="p-6 flex flex-col justify-start sm:h-40 sm:w-[23rem] md:h-96 md:w-[46rem] lg:h-96 lg:w-[46rem]">
+        <h3 class="text-4xl font-nunito m-2 mb-6 text-gray-900">AGENDA</h3>
+        <ul class="overflow-y-auto font-nunito text-base rounded-lg text-gray-900">
+          <div *ngIf="!!eventos[0]">
+            <li class="px-2 py-2  font-black not-italic text-emerald-900 border-b border-gray-200 w-full"
+              *ngFor="let evento of eventos">
+              <div class="grid grid-cols-2">
+                <div>
+              <h5 class="font-normal italic text-black">{{evento.data}}</h5>
+              {{evento.local}}
+            </div>
+              <div class="flex justify-end" *ngIf="!!hasLogin">
+              <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-2 rounded-full m-1">
+                <svg xmlns="http://www.w3.org/2000/svg"  class="w-6 mx-auto"
+                viewBox="0 0 72 72"
+                ><path d="M 33 13 C 31.895 13 31 13.895 31 15 L 31 16 L 18 16 C 15.791 16 14 17.791 14 20 C 14 21.973645 15.432361 23.602634 17.3125 23.929688 L 19.707031 52.664062 C 20.050031 56.777062 23.553641 60 27.681641 60 L 46.318359 60 C 50.446359 60 53.949969 56.778062 54.292969 52.664062 L 56.6875 23.929688 C 58.567639 23.602634 60 21.973645 60 20 C 60 17.791 58.209 16 56 16 L 43 16 L 43 15 C 43 13.895 42.105 13 41 13 L 33 13 z"></path></svg>
+              </button>
+              <button class="bg-yellow-500 fill-black hover:bg-yellow-600 text-white font-bold py-2 px-2 rounded-full m-1">
+                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="24" height="24"
+                  viewBox="0 0 26 26"
+                  >    <path d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"></path></svg>
+              </button>
+            </div>
+            </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <div>
+    <button type="button"
+      class="inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="w-3 mx-auto"
+      viewBox="0 0 512 512"
+      style=" fill:#000000;"><path d="M 33 13 C 31.895 13 31 13.895 31 15 L 31 16 L 18 16 C 15.791 16 14 17.791 14 20 C 14 21.973645 15.432361 23.602634 17.3125 23.929688 L 19.707031 52.664062 C 20.050031 56.777062 23.553641 60 27.681641 60 L 46.318359 60 C 50.446359 60 53.949969 56.778062 54.292969 52.664062 L 56.6875 23.929688 C 58.567639 23.602634 60 21.973645 60 20 C 60 17.791 58.209 16 56 16 L 43 16 L 43 15 C 43 13.895 42.105 13 41 13 L 33 13 z"></path></svg>
+    </button>
+  </div>
+</div>
