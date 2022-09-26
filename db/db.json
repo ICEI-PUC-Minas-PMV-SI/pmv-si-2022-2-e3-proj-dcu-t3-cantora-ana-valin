@@ -1,0 +1,143 @@
+{
+  "redesSociais": [
+    {
+      "id": "1",
+      "name": "Instagram",
+      "url": "https:/www.google.com/",
+      "imgUrl": "../assets/instagram.png"
+    },
+    {
+      "id": "2",
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "imgUrl": "../assets/facebook.png"
+    },
+    {
+      "id": "3",
+      "name": "Twitter",
+      "url": "https:/twitter.com/",
+      "imgUrl": "../assets/twitter.png"
+    },
+    {
+      "id": "4",
+      "name": "Youtube",
+      "url": "https:/www.youtube.com/",
+      "imgUrl": "../assets/youtube.png"
+    },
+    {
+      "id": "5",
+      "name": "Spotify",
+      "url": "https:/www.spotify.com/br/",
+      "imgUrl": "../assets/spotify.png"
+    }
+  ],
+  "agenda": [
+    {
+      "id": "1",
+      "data": "Sexta, 2 de dezembro",
+      "local": "Arena - São Paulo"
+    },
+    {
+      "id": "2",
+      "data": "Sexta, 15 de dezembro",
+      "local": "Arena Brasileira - São Paulo"
+    },
+    {
+      "id": "3",
+      "data": "Sexta, 20 de abril",
+      "local": "Arena Brasileira - São Paulo"
+    },
+    {
+      "id": "4",
+      "data": "Sexta, 28 de janeiro",
+      "local": "Arena Brasileira - São Paulo"
+    }
+  ],
+  "musicas": [
+    {
+      "id": "1",
+      "title": "musica",
+      "imgUrl": "../assets/musica1.png",
+      "links": {
+        "appleUrl": "https:/www.apple.com/",
+        "deezerUrl": "https:/www.deezer.com/",
+        "spotifyUrl": "https:/www.spotify.com/",
+        "tidalUrl": "https:/www.tidal.com/",
+        "youtubeUrl": "https:/www.youtube.com/"
+      },
+      "foto": {
+        "appleImgUrl": "../assets/apple.png",
+        "deezerImgUrl": "../assets/deezer.png",
+        "spotifyImgUrl": "../assets/spotify-2.png",
+        "tidalImgUrl": "../assets/tidal.png",
+        "youtubeImgUrl": "../assets/youtube-2.png"
+      }
+    },
+    {
+      "id": "2",
+      "title": "musica2",
+      "imgUrl": "../assets/musica2.png",
+      "links": {
+        "appleUrl": "https:/www.apple.com/",
+        "deezerUrl": "https:/www.deezer.com/",
+        "spotifyUrl": "https:/www.spotify.com/",
+        "tidalUrl": "https:/www.tidal.com/",
+        "youtubeUrl": "https:/www.youtube.com/"
+      },
+      "foto": {
+        "appleImgUrl": "../assets/apple.png",
+        "deezerImgUrl": "../assets/deezer.png",
+        "spotifyImgUrl": "../assets/spotify-2.png",
+        "tidalImgUrl": "../assets/tidal.png",
+        "youtubeImgUrl": "../assets/youtube-2.png"
+      }
+    },
+    {
+      "id": "3",
+      "title": "musica3",
+      "imgUrl": "../assets/musica3.png",
+      "links": {
+        "appleUrl": "https:/www.apple.com/",
+        "deezerUrl": "https:/www.deezer.com/",
+        "spotifyUrl": "https:/www.spotify.com/",
+        "tidalUrl": "https:/www.tidal.com/",
+        "youtubeUrl": "https:/www.youtube.com/"
+      },
+      "foto": {
+        "appleImgUrl": "../assets/apple.png",
+        "deezerImgUrl": "../assets/deezer.png",
+        "spotifyImgUrl": "../assets/spotify-2.png",
+        "tidalImgUrl": "../assets/tidal.png",
+        "youtubeImgUrl": "../assets/youtube-2.png"
+      }
+    }
+  ],
+  "biografia": [
+    {
+      "id": "1",
+      "text": "Nascida e criada no bairro Serra em Belo Horizonte, Ana é filha da professora de música e artes Isabela Cristina Valin e do militar naval Pedro Leite Lima. Aos 6 anos mudou-se para Natal, no Rio Grande do Norte, quando seu pai foi transferido para servir a Base Naval de Natal. Durante a infância na capital potiguar sofreu racismo por ser uma das únicas crianças negras numa escola particular e tradicional da cidade de Natal. Ana começou a cantar na Igreja aos 14 anos e começou a fazer apresentações em paróquias e outros eventos quando retornou a Belo Horizonte, aos 19 anos de idade. Em 2009, aos dezoito anos, ingressou, com bolsa pelo Enem, no curso de Publicidade e Propaganda na Pontifícia Universidade Católica de Minas Gerais (PUC-Minas), se formando em 2013 e passando a trabalhar como editora de vídeo. Em 2015, paralelamente, criou um canal no YouTube e passou a publicar vídeos cantando músicas de outros artistas. Em janeiro de 2021, iniciou sua carreira solo com o single \"Me Toca\", lançado com apoio do selo musical Quadrilha, do rapper Djonga. Em 19 de agosto do mesmo ano, lançou o seu primeiro álbum de estúdio, De Primeira. O álbum é uma mistura de samba, pop, reggae e MPB, sendo aclamado pela crítica especializada."
+    }
+  ],
+  "centralFas": [
+    {
+      "id": "1",
+      "name": "Teste teste",
+      "cel": "31994494994",
+      "email": "teste@teste.com"
+    }
+  ],
+  "contato": [
+    {
+      "id": "1",
+      "cel": "31999999999",
+      "email": "teste@teste.com"
+    }
+  ],
+  "login": [
+    {
+      "id": "1",
+      "email": "ana@valin.com",
+      "senha": "123456"
+    }
+  ]
+}
