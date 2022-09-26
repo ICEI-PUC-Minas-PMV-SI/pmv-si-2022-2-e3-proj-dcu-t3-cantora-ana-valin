@@ -1,0 +1,55 @@
+<!-- Container for demo purpose -->
+<div class="object-cover absolute w-full min-h-full bg-cover " style="background-image: url('../../../assets/bg1.png');"
+>
+  <!-- <img class="object-cover w-[100vw] h-[100vh]" src="../assets/musicas.jpg" alt="Girl in a jacket"> -->
+
+  <div class="container my-24 px-6 mx-auto w-[60rem]">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800">
+    <style>
+      .zoom:hover img {
+        transform: scale(1.1);
+      }
+    </style>
+    <h3 class="text-4xl font-nunito m-2 mb-6 text-gray-900">MÚSICAS</h3>
+    <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-6" *ngIf="!!musicas[0]">
+      <div class="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
+        style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark" *ngFor="let musica of musicas">
+        <img src="{{musica.imgUrl}}"
+          class="w-full transition duration-300 ease-linear align-middle" />
+
+          <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed">
+            <div class="flex justify-start items-end h-full">
+              <!-- <h5 class="text-lg font-bold text-white m-6">{{musica.title}}</h5> -->
+            </div>
+          </div>
+          <div class="hover-overlay flex" *ngIf="musica.links && musica.foto">
+            <div
+              class="mask absolute items-center font-nunito text-sm bg-[#91633f] bg-opacity-90 flex flex-col justify-evenly p-6 top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+              <h4 class="text-black text-xl">Music</h4>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.appleUrl)"><img class="w-6 h-6 p-1" src="{{musica.foto.appleImgUrl}}" alt="Apple Music">
+                <span class="mt-[2px] text-black font-extrabold">Apple Music</span>
+              </button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.deezerUrl)"><img class="w-5 h-6 p-1" src="{{musica.foto.deezerImgUrl}}" alt="Deezer">
+                <span class="mt-[2px] ml-1 text-black font-extrabold">Deezer</span> </button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.spotifyUrl)"><img class="w-6 h-6 p-1" src="{{musica.foto.spotifyImgUrl}}" alt="Spotify">
+                <span class="mt-[2px] ml-1 text-black font-extrabold">Spotify</span></button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.tidalUrl)"> <img class="w-6 h-6 p-1" src="{{musica.foto.tidalImgUrl}}" alt="Tidal">
+                <span class="mt-[2px] ml-1 text-black font-extrabold">Tidal</span></button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.youtubeUrl)"> <img class="w-6 h-6 p-1" src="{{musica.foto.youtubeImgUrl}}" alt="Youtube">
+                <span class="mt-[2px] ml-1 text-black font-extrabold">Youtube</span></button>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+  </section>
+  <!-- Section: Design Block -->
+
+</div>
+</div>
+<!-- Container for demo purpose -->
+
+
