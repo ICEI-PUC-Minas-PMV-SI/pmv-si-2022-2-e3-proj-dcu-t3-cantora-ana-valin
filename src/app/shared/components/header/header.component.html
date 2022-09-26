@@ -1,0 +1,153 @@
+<nav class="
+  relative
+  w-full
+  flex flex-wrap
+  items-center
+  justify-between
+  shadow-lg
+  navbar navbar-expand-lg bg-amber-50
+  ">
+  <div class="container-fluid w-full flex flex-wrap items-center justify-between px-4">
+  <button class="
+      navbar-toggler
+      text-black
+      border-0
+      hover:shadow-none hover:no-underline
+      py-2
+      px-2.5
+      bg-transparent
+      focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline
+    " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars"
+    class="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path fill="currentColor"
+      d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+    </path>
+  </svg>
+  </button>
+  <div>
+  <a href="#">
+      <h1 class="text-[40px] p-2 mx-2 font-unica">ana valin</h1>
+  </a>
+
+
+</div>
+  <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
+  <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto text-lg font-nunito">
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/">Home</a>
+    </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/agenda">Agenda</a>
+    </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/musicas">Músicas</a>
+    </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/biografia">Biografia</a>
+    </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/centralFas">Central de fãs</a>
+    </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/contato">Contato  </a>
+    </li>
+    <li class="nav-item p-2" *ngIf="!hasLogin">
+      <a class="nav-link text-amber-700 hover:text-red-600 focus:text-red-600 p-0" routerLink="/login">Acesso restrito  </a>
+    </li>
+  </ul>
+
+</div>
+
+  <div class="flex items-center relative" *ngIf="!!hasLogin">
+  <div class="dropdown relative">
+    <ul class="
+      dropdown-menu
+      min-w-max
+      absolute
+      hidden
+      bg-white
+      text-base
+      z-50
+      float-left
+      py-2
+      list-none
+      text-left
+      rounded-lg
+      shadow-lg
+      mt-1
+      m-0
+      bg-clip-padding
+      border-none
+      left-auto
+      right-0
+    " aria-labelledby="dropdownMenuButton1">
+      <li>
+        <a class="
+          dropdown-item
+          text-sm
+          py-2
+          px-4
+          font-normal
+          block
+          w-full
+          whitespace-nowrap
+          bg-transparent
+          text-gray-700
+          hover:bg-gray-100
+        " href="#">sim_card_alert</a>
+      </li>
+    </ul>
+  </div>
+  <div class="dropdown relative">
+    <a class="dropdown-toggle flex items-center hidden-arrow" href="#" id="dropdownMenuButton2" role="button"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="../../../../assets/login.png" class="rounded-full"
+        style="height: 40px; width: 40px" alt="" loading="lazy" />
+    </a>
+    <ul class="
+    dropdown-menu
+    min-w-max
+    absolute
+    hidden
+    bg-white
+    text-base
+    z-50
+    float-left
+    py-2
+    list-none
+    text-left
+    rounded-lg
+    shadow-lg
+    mt-1
+    m-0
+    bg-clip-padding
+    border-none
+    left-auto
+    right-0
+  " aria-labelledby="dropdownMenuButton2">
+      <li>
+        <a class="
+        dropdown-item
+        text-sm
+        py-2
+        px-6
+        font-normal
+        block
+        w-full
+        whitespace-nowrap
+        bg-transparent
+        text-gray-700
+        hover:bg-gray-100"
+        (click)="logout()">Sair</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</div>
+
+</nav>
+
+
+
