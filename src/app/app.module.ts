@@ -1,3 +1,4 @@
+import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { CentralDeFasComponent } from './pages/central-de-fas/central-de-fas.component';
@@ -23,6 +24,7 @@ import { HomeComponent } from './pages/home/home.component';
     BiografiaComponent,
     CentralDeFasComponent,
     ContatoComponent,
+    DepoimentosComponent,
     LoginComponent,
   ],
   imports: [

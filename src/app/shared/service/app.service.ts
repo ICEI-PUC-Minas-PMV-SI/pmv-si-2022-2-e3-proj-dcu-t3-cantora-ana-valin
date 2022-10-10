@@ -1,3 +1,4 @@
+import { Mensagem } from './../models/mensagens.model';
 import { Router, RouterModule } from '@angular/router';
 import { RedesSociais } from './../models/redesSociais.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -150,4 +151,13 @@ export class AppService {
         tap(_ => alert('Contato editado com sucesso'))
       );
   }
+
+  getMensagem(): Observable<Mensagem[]> {
+    return this.httpClient.get<Mensagem[]>(`${this.url}/mensagem`);
+  }
+
+  getDepoimento(): Observable<Mensagem[]> {
+    return this.httpClient.get<Mensagem[]>(`${this.url}/depoimento`);
+  }
+
 }

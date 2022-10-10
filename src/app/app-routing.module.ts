@@ -1,3 +1,4 @@
+import { DepoimentosComponent } from './pages/depoimentos/depoimentos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { CentralDeFasComponent } from './pages/central-de-fas/central-de-fas.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'musicas', component: MusicasComponent },
   { path: 'centralFas', component: CentralDeFasComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'depoimentos', component: DepoimentosComponent },
   { path: 'login', component: LoginComponent },
 ];
 
