@@ -1,12 +1,12 @@
 <div class="object-cover absolute w-full min-h-full bg-cover " style="background-image: url('../../../assets/bg1.png')">
-  <section class="h-full gradient-form md:h-screen font-nunito">
-  <div class="container px-6 py-12  md:mt-0 lg:-mt-12 h-full mx-auto">
-    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-      <div class="xl:w-10/12">
+  <section *ngIf="!hasLogin" class="h-full gradient-form md:h-screen font-nunito">
+  <div class="container px-6 py-24 md:mt-0 h-full mx-auto xsm:w-11/12">
+    <div class="flex justify-center flex-wrap h-full g-4 text-gray-800">
+      <div class="xl:w-8/12">
         <div class="block bg-[#91633f] bg-opacity-40 shadow-lg rounded-lg">
           <div class="lg:flex lg:flex-wrap g-0">
             <div class="lg:w-6/12 px-4 md:px-0">
-              <div class="md:p-12 md:mx-6 sm:p-12 sm:mx-6 xsm:p-8 xsm:mx-6 ">
+              <div class="md:p-12 md:mx-6 sm:p-12 sm:mx-6 xsm:p-8 xsm:mx-6 lg:p-6 lg:mx-3 ">
                 <div class="text-center">
                   <h3 class="text-4xl font-nunito text-left mb-8 text-gray-900">CONTATO</h3>
                   <form>
@@ -67,7 +67,7 @@
                     w-full
                     px-6
                     py-2.5
-                    bg-amber-700
+                    bg-amber-600
                     text-white
                     font-medium
                     text-xs
@@ -75,9 +75,9 @@
                     uppercase
                     rounded
                     shadow-md
-                    hover:bg-blue-700 hover:shadow-lg
-                    focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-                    active:bg-blue-800 active:shadow-lg
+                    hover:bg-amber-700 hover:shadow-lg
+                    focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0
+                    active:bg-amber-800 active:shadow-lg
                     transition
                     duration-150
                     ease-in-out">Enviar</button>
@@ -87,39 +87,36 @@
             </div>
 
             <div
-              class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
-              style="background-position: 20%;"><!-- background-image: url('../../../assets/contato.jpg');-->
-              <div class="text-amber-50 px-4 py-6 md:p-12 md:mx-6 xsm:p-12 xsm:mx-6">
+              class="lg:w-6/12 justify-center flex items-center bg-cover lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+              >
+              <video class="relative object-cover h-[25rem] w-full rounded-lg"
+  type="video/mp4"
+  loop
+  autoplay
+  [muted]="true" preload="metadata">
+    <source src="../assets/contato.mp4">
+  </video>
+              <div class="absolute bg-[#91633f] bg-opacity-40 rounded-lg text-amber-50 p-6">
                 <div class="flex items-start mb-8">
                   <div class="shrink-0">
                     <div class="p-4 bg-black rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white"
-                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                          d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
-                        </path>
-                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </div>
                   </div>
                   <div class="grow ml-4">
                     <p class="font-bold mb-1">Email</p>
-                    <p class="text-gray-900">support@example.com</p>
+                    <p class="text-gray-900">{{contato[0].email}}</p>
                   </div>
                 </div>
                 <div class="flex items-start">
                   <div class="shrink-0">
                     <div class="p-4 bg-black rounded-md shadow-md w-14 h-14 flex items-center justify-center">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset" class="w-5 text-white"
-                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path fill="currentColor"
-                          d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
-                        </path>
-                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     </div>
                   </div>
                   <div class="grow ml-4">
                     <p class="font-bold mb-1">Telefone</p>
-                    <p class="text-gray-900">+1 234-567-89</p>
+                    <p class="text-gray-900">{{contato[0].cel}}</p>
                   </div>
                 </div>
               </div>
@@ -130,4 +127,129 @@
     </div>
   </div>
 </section>
+
+
+<div *ngIf="hasLogin" class="container my-24 lg:px-6 mx-auto font-nunito flex justify-center">
+  <section class="mb-32 text-center text-gray-800  md:w-2/3 lg:w-2/3 sm:w-full rounded-lg bg-[#91633f] bg-opacity-40">
+    <div class="flex flex-row justify-between">
+      <h3 class="text-4xl sm:text-center lg:text-left m-2 p-6 pb-0 mb-0">CONTATO</h3>
+
+      <button type="button"
+            class="relative top-8 right-6 xsm:px-4 lg:px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+            Editar meus contatos
+          </button>
+    </div>
+    <h2 class="text-xl p-4 ml-5 font-bold text-left">Veja suas mensagens recebidas:</h2>
+    <div class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+      <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
+        <button type="button"
+        class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+        Excluir
+      </button>
+        <h2 class="not-italic px-6 text-justify text-emerald-900">
+            "But I must explain to you how all this mistaken of idk what to say but i need an idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure. "
+          </h2>
+
+          <div class="relative text-left top-4 pl-6">
+          <h4 class=" font-black">Amanda Linhares</h4>
+          <h4 class="text-sm">amandaclinhares@hotmail.com</h4>
+        </div>
+
+    </div>
+    </div>
+    <div class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+      <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
+        <button type="button"
+        class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+        Excluir
+      </button>
+        <h2 class="not-italic px-6 text-justify text-emerald-900">
+            "But I must explain to you how all this mistaken of idk what to say but i need an idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+          </h2>
+
+          <div class="relative text-left top-4 pl-6">
+          <h4 class=" font-black">Amanda Linhares</h4>
+          <h4 class="text-sm">amandaclinhares@hotmail.com</h4>
+        </div>
+    </div>
+    </div>
+  </section>
+</div>
+</div>
+
+
+
+<div class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable" aria-modal="true" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+    <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-amber-50 bg-clip-padding rounded-md outline-none text-current">
+      <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+          CONTATO - Editar meus contatos
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4 flex flex-col">
+        <div class="flex flex-row items-center">
+          <div class="p-4 m-3 bg-black rounded-md shadow-md w-12 h-12 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <input #instagram  type="tel" value="{{contato[0].email}}" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700" id="btnInsta">
+          <button type="button"
+          class="inline-block mx-3 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+          Excluir
+        </button>
+        </div>
+        <div class="flex flex-row items-center">
+          <div class="p-4 m-3 bg-black rounded-md shadow-md w-12 h-12 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <input #facebook type="text" value="{{contato[0].cel}}" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700" id="btnInsta">
+          <button type="button"
+          class="inline-block mx-3 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+          Excluir
+        </button>
+        </div>
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+          data-bs-dismiss="modal"
+          >
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
