@@ -1,12 +1,9 @@
-<!-- Container for demo purpose -->
 <div class="object-cover absolute w-full min-h-full bg-cover " style="background-image: url('../../../assets/bg1.png');">
   <div class="container my-24 px-6 mx-auto">
-
-  <!-- Section: Design Block -->
-  <section class="mb-32 text-center text-gray-800 font-nunito">
-    <div class="md:max-w-[500px] lg:max-w-[700px] mx-auto px-3 lg:px-6 bg-[#91633f] bg-opacity-40 pt-12 pb-8 rounded-lg">
+  <section *ngIf="!hasLogin"  class="mb-32 text-center text-gray-800 font-nunito">
+    <div class="md:max-w-[500px] lg:max-w-[700px] mx-auto px-3 lg:px-6 bg-[#91633f] bg-opacity-40 pt-8 pb-8 rounded-lg">
       <h3 class="text-4xl sm:text-center lg:text-left mb-4">CENTRAL DE FÃS</h3>
-      <h2 class="text-xl font-bold mb-10 sm:text-center lg:text-left">Cadastre seus dados para receber conteúdo exclusivo</h2>
+      <h2 class="text-xl font-bold mb-8 sm:text-center lg:text-left">Cadastre seus dados para receber conteúdo exclusivo</h2>
       <form>
         <div class="form-group mb-3">
           <input type="text" class="block
@@ -81,8 +78,41 @@
       </form>
     </div>
   </section>
-  <!-- Section: Design Block -->
+  <!-- login -->
+
+  <section *ngIf="hasLogin" class="h-full gradient-form md:h-screen font-nunito">
+    <div class="container px-6 md:mt-0 h-full mx-auto">
+      <div class="flex justify-center flex-wrap h-full g-4 text-gray-800">
+        <div class="xl:w-9/12">
+          <div class="block bg-[#91633f] bg-opacity-40 shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <div class="lg:w-6/12 px-4 md:px-0 place-self-center">
+                <div class="md:p-12 md:mx-6 sm:p-12 sm:mx-6 xsm:p-8 xsm:mx-6 lg:p-6 lg:mx-3 ">
+                  <div class="text-center">
+                    <h3 class="text-4xl font-nunito text-gray-900">CENTRAL DE FÃS</h3>
+                    <h2 class="text-xl p-6 font-bold text-center">Deseja baixar os dados de cadastro do seus fãs?</h2>
+                    <button type="button"
+                    class="inline-block m-1 lg:mr-3.5 px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+                    data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+                    Gerar relatório
+                  </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="lg:w-6/12 bg-cover flex lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+                style=" background-image: url('../../../assets/central-fas.jpg');">
+                <div class="px-4 py-6 lg:p-6 md:p-44 md:mx-6 xsm:p-44 xsm:mx-6">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </div>
 </div>
-<!-- Container for demo purpose -->
