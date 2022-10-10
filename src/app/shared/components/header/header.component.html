@@ -26,13 +26,56 @@
     </path>
   </svg>
   </button>
-  <div>
-  <a href="#">
-      <h1 class="text-[40px] p-2 mx-2 font-unica">ana valin</h1>
-  </a>
-
-
-</div>
+    <a href="#">
+      <h1 class="text-[40px] p-2 mx-2 font-unica ">ana valin</h1>
+    </a>
+    <div class="flex items-center lg:right-5 lg:absolute " *ngIf="!!hasLogin">
+      <div class="dropdown relative">
+        <a class="dropdown-toggle flex items-center hidden-arrow" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../../../assets/login.png" class="rounded-full"
+            style="height: 40px; width: 40px" alt="" loading="lazy" />
+        </a>
+        <ul class="pointer
+        dropdown-menu
+        min-w-max
+        absolute
+        hidden
+        bg-white
+        text-base
+        z-50
+        float-left
+        py-2
+        list-none
+        text-left
+        rounded-lg
+        shadow-lg
+        mt-1
+        m-0
+        bg-clip-padding
+        border-none
+        left-auto
+        right-0
+      " aria-labelledby="dropdownMenuButton2">
+          <li>
+            <a class="
+            dropdown-item
+            text-sm
+            py-2
+            px-6
+            font-normal
+            block
+            cursor-pointer
+            w-full
+            whitespace-nowrap
+            bg-transparent
+            text-gray-700
+            hover:bg-gray-100"
+            (click)="logout()">Sair</a>
+          </li>
+        </ul>
+      </div>
+      </div>
   <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
   <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto text-lg font-nunito">
     <li class="nav-item p-2">
@@ -53,6 +96,9 @@
     <li class="nav-item p-2">
       <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/contato">Contato  </a>
     </li>
+    <li class="nav-item p-2">
+      <a class="nav-link text-amber-700 hover:text-emerald-600 focus:text-amber-700 p-0" routerLink="/depoimentos">Depoimentos  </a>
+    </li>
     <li class="nav-item p-2" *ngIf="!hasLogin">
       <a class="nav-link text-amber-700 hover:text-red-600 focus:text-red-600 p-0" routerLink="/login">Acesso restrito  </a>
     </li>
@@ -60,94 +106,11 @@
 
 </div>
 
-  <div class="flex items-center relative" *ngIf="!!hasLogin">
-  <div class="dropdown relative">
-    <ul class="
-      dropdown-menu
-      min-w-max
-      absolute
-      hidden
-      bg-white
-      text-base
-      z-50
-      float-left
-      py-2
-      list-none
-      text-left
-      rounded-lg
-      shadow-lg
-      mt-1
-      m-0
-      bg-clip-padding
-      border-none
-      left-auto
-      right-0
-    " aria-labelledby="dropdownMenuButton1">
-      <li>
-        <a class="
-          dropdown-item
-          text-sm
-          py-2
-          px-4
-          font-normal
-          block
-          w-full
-          whitespace-nowrap
-          bg-transparent
-          text-gray-700
-          hover:bg-gray-100
-        " href="#">sim_card_alert</a>
-      </li>
-    </ul>
-  </div>
-  <div class="dropdown relative">
-    <a class="dropdown-toggle flex items-center hidden-arrow" href="#" id="dropdownMenuButton2" role="button"
-      data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="../../../../assets/login.png" class="rounded-full"
-        style="height: 40px; width: 40px" alt="" loading="lazy" />
-    </a>
-    <ul class="
-    dropdown-menu
-    min-w-max
-    absolute
-    hidden
-    bg-white
-    text-base
-    z-50
-    float-left
-    py-2
-    list-none
-    text-left
-    rounded-lg
-    shadow-lg
-    mt-1
-    m-0
-    bg-clip-padding
-    border-none
-    left-auto
-    right-0
-  " aria-labelledby="dropdownMenuButton2">
-      <li>
-        <a class="
-        dropdown-item
-        text-sm
-        py-2
-        px-6
-        font-normal
-        block
-        w-full
-        whitespace-nowrap
-        bg-transparent
-        text-gray-700
-        hover:bg-gray-100"
-        (click)="logout()">Sair</a>
-      </li>
-    </ul>
-  </div>
-  </div>
 </div>
 
 </nav>
+
+
 
 
 
