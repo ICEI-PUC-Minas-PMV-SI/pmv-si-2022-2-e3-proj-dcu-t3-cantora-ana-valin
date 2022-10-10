@@ -9,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BiografiaComponent implements OnInit {
   biografia!: Biografia[];
+  hasLogin: boolean = false;
 
   constructor(private service: AppService) { }
 
   ngOnInit() {
     this.service.getBiografia().subscribe(
       bio =>   this.biografia = bio
+    )
+
+    this.service.hasLogin.subscribe(
+      value => value == true? this.hasLogin = true : this.hasLogin = false
     )
   }
 
