@@ -1,0 +1,196 @@
+<div class="object-cover absolute w-full min-h-full bg-cover font-nunito" style="background-image: url('../../../assets/bg1.png')">
+<div *ngIf="hasLogin" class="container my-24 lg:px-6 mx-auto font-nunito flex justify-center">
+  <section class="mb-32 text-center text-gray-800  md:w-2/3 lg:w-2/3 sm:w-full rounded-lg bg-[#91633f] bg-opacity-40">
+    <div class="flex flex-row justify-between">
+      <h3 class="text-4xl sm:text-center lg:text-left m-2 p-6 pb-0 mb-0">DEPOIMENTOS</h3>
+      <button type="button"
+            class="relative top-8 right-6 xsm:px-4 lg:px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1">
+            Excluir depoimentos aprovados
+          </button>
+        </div>
+    <h2 class="text-xl p-4 ml-5 font-bold text-left">Veja os depoimentos recebidos:</h2>
+    <div *ngFor="let mensagem of mensagens" class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+      <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
+        <button type="button"
+        class="absolute top-3 right-[6.5rem] m-1 px-3 py-3 w-20 h-10 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
+        Aprovar
+      </button>
+        <button type="button"
+        class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+        Excluir
+      </button>
+        <h2 class="not-italic px-6 text-justify text-emerald-900">
+            {{mensagem.mensagem}}
+          </h2>
+
+          <div class="relative text-left top-4 pl-6">
+          <h4 class=" font-black">{{mensagem.nome}}</h4>
+          <h4 class="text-sm">{{mensagem.email}}</h4>
+        </div>
+
+    </div>
+    </div>
+  </section>
+</div>
+
+
+<div *ngIf="!hasLogin" class="container my-24 px-6 mx-auto w-[60rem]">
+  <section class="mb-32 text-gray-800">
+    <style>
+      .zoom:hover img {
+        transform: scale(1.1);
+      }
+    </style>
+    <div class="flex flex-row flex-wrap font-nunito md:justify-evenly lg:justify-between">
+      <h3 class="text-4xl m-2 pl-5 text-gray-900">DEPOIMENTOS</h3>
+      <button type="button"
+        class="inline-block mx-auto mb-4 md:mx-0 m-1 lg:mr-7 px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+        data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+        Enviar um depoimento para Ana Valin
+      </button>
+    </div>
+    <div class="grid grid-cols-1 gap-4">
+      <div class="shadow-lg rounded-lg relative overflow-hidden bg-amber-50 bg-opacity-40 p-7 justify-center align-center"
+        *ngFor="let mensagem of depoimentos">
+        <p id="card-depoimento-text"
+                                    class="text-justify text-emerald-900 p-2 w-full text-base">
+                                    {{mensagem.mensagem}}
+                                </p>
+                                <p id="card-depoimento-text"
+                                    class="text-right p-2 text-black font-black mt-4">
+                                    <b class="text-base"></b>Amanda Linhares<br />
+                                </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+</div>
+
+
+<!-- user view -->
+
+
+
+<!-- modal -->
+
+
+<div
+  class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-amber-50 bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+          DEPOIMENTOS - Enviar depoimento
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4 flex flex-col">
+        <div class="flex flex-col">
+          <h4 class="mb-2 ml-1 w-36">Nome:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          mb-4
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="">
+          <h4 class="mb-3 ml-1 w-36">Depoimento:</h4>
+          <textarea class="w-full h-60
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700"></textarea>
+        </div>
+
+
+
+
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+          data-bs-dismiss="modal">
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- remover depo aprovados -->
+
+<div
+  class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="exampleModalCenteredScrollable1" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable1" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-amber-50 bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+          DEPOIMENTOS - Excluir depoimentos aprovados
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4 flex flex-col">
+        <div class="flex flex-col">
+          <div *ngFor="let mensagem of mensagens" class="bg-[#91633f] relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+            <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
+              <button type="button"
+              class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+              Excluir
+            </button>
+              <h2 class="not-italic px-6 text-justify text-emerald-900">
+                  {{mensagem.mensagem}}
+                </h2>
+
+                <div class="relative text-left top-4 pl-6">
+                <h4 class=" font-black">{{mensagem.nome}}</h4>
+                <h4 class="text-sm">{{mensagem.email}}</h4>
+              </div>
+
+          </div>
+          </div>
+
+
+      </div>
+      <div
+        class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
