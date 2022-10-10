@@ -10,6 +10,8 @@ import { DOCUMENT } from '@angular/common';
 })
 export class MusicasComponent implements OnInit {
   musicas!: Musicas[];
+  hasLogin: boolean = false;
+
   constructor(private service: AppService,
               @Inject(DOCUMENT) private document: Document
     ) { }
@@ -17,6 +19,10 @@ export class MusicasComponent implements OnInit {
   ngOnInit() {
     this.service.getMusicas().subscribe(
       musicas => this.musicas = musicas
+    )
+
+    this.service.hasLogin.subscribe(
+      value => value == true? this.hasLogin = true : this.hasLogin = false
     )
   }
 

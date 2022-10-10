@@ -1,55 +1,358 @@
-<!-- Container for demo purpose -->
-<div class="object-cover absolute w-full min-h-full bg-cover " style="background-image: url('../../../assets/bg1.png');"
->
-  <!-- <img class="object-cover w-[100vw] h-[100vh]" src="../assets/musicas.jpg" alt="Girl in a jacket"> -->
-
+<div class="object-cover absolute w-full min-h-full bg-cover font-nunito"
+  style="background-image: url('../../../assets/bg1.png');">
   <div class="container my-24 px-6 mx-auto w-[60rem]">
-
-  <!-- Section: Design Block -->
-  <section class="mb-32 text-gray-800">
-    <style>
-      .zoom:hover img {
-        transform: scale(1.1);
-      }
-    </style>
-    <h3 class="text-4xl font-nunito m-2 mb-6 text-gray-900">MÚSICAS</h3>
-    <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-6" *ngIf="!!musicas[0]">
-      <div class="zoom shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
-        style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark" *ngFor="let musica of musicas">
-        <img src="{{musica.imgUrl}}"
-          class="w-full transition duration-300 ease-linear align-middle" />
-
-          <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed">
-            <div class="flex justify-start items-end h-full">
-              <!-- <h5 class="text-lg font-bold text-white m-6">{{musica.title}}</h5> -->
-            </div>
-          </div>
-          <div class="hover-overlay flex" *ngIf="musica.links && musica.foto">
+    <section class="mb-32 text-gray-800">
+      <div class="flex flex-row justify-between">
+        <h3 class="text-4xl m-2 mb-6 text-gray-900">MÚSICAS</h3>
+        <button *ngIf="hasLogin" type="button"
+          class="inline-block m-1 lg:mr-3.5 px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
+          Adicionar música
+        </button>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:w-full lg:w-full mx-auto" *ngIf="!!musicas[0]">
+        <div class="shadow-lg rounded-lg relative overflow-hidden bg-no-repeat bg-cover"
+          style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark"
+          *ngFor="let musica of musicas">
+          <img src="{{musica.imgUrl}}" class="w-full transition duration-300 ease-linear align-middle" />
+          <div class="flex justify-center flex-wrap" *ngIf="!!hasLogin">
+            <button type="button"
+            class="shrink-0 inline-block m-1 px-3 py-2.5 w-20 h-10 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
+            data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1">
+            Editar
+          </button>
+          <button type="button"
+        class="inline-block m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+        Excluir
+      </button>
+        </div>
+          <div class="hover-overlay flex" *ngIf="musica.links && musica.foto && !hasLogin">
             <div
-              class="mask absolute items-center font-nunito text-sm bg-[#91633f] bg-opacity-90 flex flex-col justify-evenly p-6 top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
-              <h4 class="text-black text-xl">Music</h4>
-              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.appleUrl)"><img class="w-6 h-6 p-1" src="{{musica.foto.appleImgUrl}}" alt="Apple Music">
+              class="mask absolute items-center font-nunito text-sm  bg-black bg-opacity-70 flex flex-col justify-evenly p-6 top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+              <h4 class="text-amber-500 text-base text-center uppercase font-black">{{musica.title}}</h4>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-amber-600"
+                (click)="goToSocial(musica.links.appleUrl)"><img class="w-6 h-6 p-1 ml-6" src="{{musica.foto.appleImgUrl}}"
+                  alt="Apple Music">
                 <span class="mt-[2px] text-black font-extrabold">Apple Music</span>
               </button>
-              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.deezerUrl)"><img class="w-5 h-6 p-1" src="{{musica.foto.deezerImgUrl}}" alt="Deezer">
-                <span class="mt-[2px] ml-1 text-black font-extrabold">Deezer</span> </button>
-              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.spotifyUrl)"><img class="w-6 h-6 p-1" src="{{musica.foto.spotifyImgUrl}}" alt="Spotify">
-                <span class="mt-[2px] ml-1 text-black font-extrabold">Spotify</span></button>
-              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.tidalUrl)"> <img class="w-6 h-6 p-1" src="{{musica.foto.tidalImgUrl}}" alt="Tidal">
-                <span class="mt-[2px] ml-1 text-black font-extrabold">Tidal</span></button>
-              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-emerald-600" (click)="goToSocial(musica.links.youtubeUrl)"> <img class="w-6 h-6 p-1" src="{{musica.foto.youtubeImgUrl}}" alt="Youtube">
-                <span class="mt-[2px] ml-1 text-black font-extrabold">Youtube</span></button>
+              <div class="flex justify-around">
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-amber-600"
+                (click)="goToSocial(musica.links.deezerUrl)"><img class="w-5 h-6 p-1 ml-10" src="{{musica.foto.deezerImgUrl}}"
+                  alt="Deezer">
+                <span class="mt-[2px] text-black font-extrabold">Deezer</span>
+              </button>
+              </div>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-amber-600"
+                (click)="goToSocial(musica.links.spotifyUrl)"><img class="w-6 h-6 p-1 ml-9"
+                  src="{{musica.foto.spotifyImgUrl}}" alt="Spotify">
+                <span class="mt-[2px] text-black font-extrabold">Spotify</span></button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-amber-600"
+                (click)="goToSocial(musica.links.tidalUrl)"> <img class="w-6 h-6 p-1 ml-10" src="{{musica.foto.tidalImgUrl}}"
+                  alt="Tidal">
+                <span class="mt-[2px] text-black font-extrabold">Tidal</span></button>
+              <button type="button" class="flex w-40 m-1 p-[2px] bg-amber-50 rounded-lg hover:bg-amber-600"
+                (click)="goToSocial(musica.links.youtubeUrl)"> <img class="w-6 h-6 p-1 ml-8"
+                  src="{{musica.foto.youtubeImgUrl}}" alt="Youtube">
+                <span class="mt-[2px] text-black font-extrabold">Youtube</span></button>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
 
+<!-- modal add musica -->
+<div
+  class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-amber-50 bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+          AGENDA - Adicionar nova música
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4 flex flex-col">
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">Foto de capa:</h4>
+          <input type="file" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">Nome:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Apple:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Deezer:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Spotify:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Tidal:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Youtube:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+          data-bs-dismiss="modal">
+          Salvar
+        </button>
       </div>
     </div>
-
-  </section>
-  <!-- Section: Design Block -->
-
+  </div>
 </div>
+
+<!-- editar modal -->
+
+<div
+  class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="exampleModalCenteredScrollable1" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable1" aria-modal="true"
+  role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-amber-50 bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+          AGENDA - Editar música
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4 flex flex-col">
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">Foto de capa:</h4>
+          <input type="file" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">Nome:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Apple:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Deezer:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Spotify:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Tidal:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+        <div class="flex flex-row">
+          <h4 class="m-3 w-36">URL Youtube:</h4>
+          <input type="text" class="w-full h-10
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-amber-50 bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700">
+        </div>
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button"
+          class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
+          data-bs-dismiss="modal">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- Container for demo purpose -->
-
-
