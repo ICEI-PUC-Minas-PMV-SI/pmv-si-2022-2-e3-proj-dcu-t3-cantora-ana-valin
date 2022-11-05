@@ -3,4 +3,5 @@ export class Mensagem {
   nome?: string;
   mensagem?: string;
   email?: string;
+  text?: string;
 }

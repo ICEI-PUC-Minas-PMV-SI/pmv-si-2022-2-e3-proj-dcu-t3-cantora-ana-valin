@@ -14,13 +14,22 @@ export class BiografiaComponent implements OnInit {
   constructor(private service: AppService) { }
 
   ngOnInit() {
-    this.service.getBiografia().subscribe(
-      bio =>   this.biografia = bio
-    )
+    this.getBio()
 
     this.service.hasLogin.subscribe(
       value => value == true? this.hasLogin = true : this.hasLogin = false
     )
+  }
+
+  getBio(){
+    this.service.getBiografia().subscribe(
+      bio =>   this.biografia = bio
+    )
+  }
+
+  editBio(bio: string){
+    this.biografia[0].text = bio;
+    this.service.editBiografia(this.biografia[0]).subscribe(() => this.getBio())
   }
 
 }

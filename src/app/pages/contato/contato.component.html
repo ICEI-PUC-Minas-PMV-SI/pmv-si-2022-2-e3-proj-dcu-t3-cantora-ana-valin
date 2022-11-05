@@ -11,7 +11,7 @@
                   <h3 class="text-4xl font-nunito text-left mb-8 text-gray-900">CONTATO</h3>
                   <form>
                     <div class="form-group mb-4">
-                      <input type="text" class="block
+                      <input #nome type="text" class="block
                       w-full
                       px-3
                       py-1.5
@@ -28,7 +28,7 @@
                         placeholder="Nome">
                     </div>
                     <div class="form-group mb-4">
-                      <input type="email" class="block
+                      <input #email type="email" class="block
                       w-full
                       px-3
                       py-1.5
@@ -45,7 +45,7 @@
                         placeholder="Email">
                     </div>
                     <div class="form-group mb-6">
-                      <textarea class="
+                      <textarea #mensagem class="
                       block
                       w-full
                       px-3
@@ -63,7 +63,7 @@
                     " id="exampleFormControlTextarea13" rows="3" placeholder="Mensagem"></textarea>
                     </div>
 
-                    <button type="submit" class="
+                    <button (click)="addMensagem(nome.value, email.value, mensagem.value)" type="submit" class="
                     w-full
                     px-6
                     py-2.5
@@ -140,39 +140,21 @@
           </button>
     </div>
     <h2 class="text-xl p-4 ml-5 font-bold text-left">Veja suas mensagens recebidas:</h2>
-    <div class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+    <div *ngFor="let mensagem of mensagens" class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
       <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
-        <button type="button"
+        <button type="button" (click)="deleteMensagem(mensagem)"
         class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
         Excluir
       </button>
         <h2 class="not-italic px-6 text-justify text-emerald-900">
-            "But I must explain to you how all this mistaken of idk what to say but i need an idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure. "
+           {{mensagem.mensagem}}
           </h2>
-
           <div class="relative text-left top-4 pl-6">
-          <h4 class=" font-black">Amanda Linhares</h4>
-          <h4 class="text-sm">amandaclinhares@hotmail.com</h4>
-        </div>
-
-    </div>
-    </div>
-    <div class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
-      <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
-        <button type="button"
-        class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
-        Excluir
-      </button>
-        <h2 class="not-italic px-6 text-justify text-emerald-900">
-            "But I must explain to you how all this mistaken of idk what to say but i need an idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-          </h2>
-
-          <div class="relative text-left top-4 pl-6">
-          <h4 class=" font-black">Amanda Linhares</h4>
-          <h4 class="text-sm">amandaclinhares@hotmail.com</h4>
+          <h4 class=" font-black">{{mensagem.nome}}</h4>
+          <h4 class="text-sm">{{mensagem.email}}</h4>
         </div>
     </div>
-    </div>
+  </div>
   </section>
 </div>
 </div>
@@ -195,7 +177,7 @@
           <div class="p-4 m-3 bg-black rounded-md shadow-md w-12 h-12 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </div>
-          <input #instagram  type="tel" value="{{contato[0].email}}" class="w-full h-10
+          <input #email  type="text" value="{{contato[0].email}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -208,7 +190,7 @@
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700" id="btnInsta">
-          <button type="button"
+          <button type="button" (click)="deleteContato(true)"
           class="inline-block mx-3 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
           Excluir
         </button>
@@ -217,7 +199,7 @@
           <div class="p-4 m-3 bg-black rounded-md shadow-md w-12 h-12 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
-          <input #facebook type="text" value="{{contato[0].cel}}" class="w-full h-10
+          <input #cel type="text" value="{{contato[0].cel}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -230,7 +212,7 @@
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-amber-50 focus:outline-none focus:border-2 focus:border-amber-700" id="btnInsta">
-          <button type="button"
+          <button type="button" (click)="deleteContato(false)"
           class="inline-block mx-3 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
           Excluir
         </button>
@@ -246,7 +228,7 @@
         <button type="button"
           class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
           data-bs-dismiss="modal"
-          >
+          (click)="editContato(email.value, cel.value)">
           Salvar
         </button>
       </div>

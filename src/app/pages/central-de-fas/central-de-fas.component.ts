@@ -17,4 +17,8 @@ export class CentralDeFasComponent implements OnInit {
     )
   }
 
+  addFa(email: string, nome: string, cel: string) {
+    let fa = {email: email, nome: nome ,id: '', cel: cel}
+    this.service.addFa(fa).subscribe( () => fa)
+  }
 }

@@ -10,6 +10,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class MusicasComponent implements OnInit {
   musicas!: Musicas[];
+  musicaSelecionada!: Musicas;
   hasLogin: boolean = false;
 
   constructor(private service: AppService,

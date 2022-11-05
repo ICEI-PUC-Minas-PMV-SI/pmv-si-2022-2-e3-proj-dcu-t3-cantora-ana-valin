@@ -9,23 +9,22 @@
           </button>
         </div>
     <h2 class="text-xl p-4 ml-5 font-bold text-left">Veja os depoimentos recebidos:</h2>
-    <div *ngFor="let mensagem of mensagens" class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+    <div *ngFor="let mensagem of depoimentos" class="bg-amber-50 relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
       <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
-        <button type="button"
+        <button (click)="aprovarDepoimento(mensagem)" type="button"
         class="absolute top-3 right-[6.5rem] m-1 px-3 py-3 w-20 h-10 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">
         Aprovar
       </button>
-        <button type="button"
+        <button (click)="deleteDepoimento(mensagem)" type="button"
         class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
         Excluir
       </button>
         <h2 class="not-italic px-6 text-justify text-emerald-900">
-            {{mensagem.mensagem}}
+            {{mensagem.text}}
           </h2>
 
           <div class="relative text-left top-4 pl-6">
           <h4 class=" font-black">{{mensagem.nome}}</h4>
-          <h4 class="text-sm">{{mensagem.email}}</h4>
         </div>
 
     </div>
@@ -51,14 +50,14 @@
     </div>
     <div class="grid grid-cols-1 gap-4">
       <div class="shadow-lg rounded-lg relative overflow-hidden bg-amber-50 bg-opacity-40 p-7 justify-center align-center"
-        *ngFor="let mensagem of depoimentos">
+        *ngFor="let mensagem of depoimentosAprovados">
         <p id="card-depoimento-text"
                                     class="text-justify text-emerald-900 p-2 w-full text-base">
-                                    {{mensagem.mensagem}}
+                                    {{mensagem.text}}
                                 </p>
                                 <p id="card-depoimento-text"
                                     class="text-right p-2 text-black font-black mt-4">
-                                    <b class="text-base"></b>Amanda Linhares<br />
+                                    <b class="text-base"></b>{{mensagem.nome}}<br />
                                 </p>
       </div>
     </div>
@@ -96,7 +95,7 @@
       <div class="modal-body relative p-4 flex flex-col">
         <div class="flex flex-col">
           <h4 class="mb-2 ml-1 w-36">Nome:</h4>
-          <input type="text" class="w-full h-10
+          <input #nome type="text" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -112,7 +111,7 @@
         </div>
         <div class="">
           <h4 class="mb-3 ml-1 w-36">Depoimento:</h4>
-          <textarea class="w-full h-60
+          <textarea #text class="w-full h-60
           px-3
           py-1.5
           text-base
@@ -137,7 +136,7 @@
           data-bs-dismiss="modal">
           Cancelar
         </button>
-        <button type="button"
+        <button (click)="postDepoimento(nome.value, text.value)" type="button"
           class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
           data-bs-dismiss="modal">
           Enviar
@@ -167,19 +166,18 @@
       </div>
       <div class="modal-body relative p-4 flex flex-col">
         <div class="flex flex-col">
-          <div *ngFor="let mensagem of mensagens" class="bg-[#91633f] relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
+          <div *ngFor="let mensagem of depoimentosAprovados" class="bg-[#91633f] relative bg-opacity-40 pt-16 p-2 mx-6 mb-6 rounded-lg h-64">
             <div class="scrollbar-thin scrollbar-thumb-amber-700 scrollbar-track-amber-50 scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-y-auto font-nunito text-base rounded-lg text-gray-900 lg:min-h-[10rem] lg:min-w-[30rem] md:min-h-[10rem] md:min-w-[40rem] xsm:h-40 xsm:min-w-[14rem]">
-              <button type="button"
+              <button (click)="deleteDepoimentoAprov(mensagem)" type="button"
               class="absolute top-3 right-4 m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
               Excluir
             </button>
               <h2 class="not-italic px-6 text-justify text-emerald-900">
-                  {{mensagem.mensagem}}
+                  {{mensagem.text}}
                 </h2>
 
                 <div class="relative text-left top-4 pl-6">
                 <h4 class=" font-black">{{mensagem.nome}}</h4>
-                <h4 class="text-sm">{{mensagem.email}}</h4>
               </div>
 
           </div>

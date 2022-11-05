@@ -26,11 +26,11 @@
               <div class="flex justify-end flex-wrap" *ngIf="!!hasLogin">
                 <button type="button"
                 class="shrink-0 inline-block m-1 px-3 py-2.5 w-20 h-10 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
-                data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1">
+                data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1" (click)="onSelectEvent(evento)">
                 Editar
               </button>
-              <button type="button"
-            class="inline-block m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+              <button  (click)="deleteEvent(evento)" type="button"
+              class="inline-block m-1 px-3 py-2.5 w-20 h-10 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
             Excluir
           </button>
             </div>
@@ -57,7 +57,7 @@
       <div class="modal-body relative p-4 flex flex-col">
             <div class="flex flex-row">
           <h4 class="m-3">Data:</h4>
-          <input type="date" class="w-full h-10
+          <input #addData type="text" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -73,7 +73,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3">Local:</h4>
-          <input type="text" class="w-full h-10
+          <input #addLocal type="text" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -97,7 +97,7 @@
         </button>
         <button type="button"
           class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-          data-bs-dismiss="modal">
+          data-bs-dismiss="modal" (click)="addEvent(addData.value, addLocal.value)">
           Salvar
         </button>
       </div>
@@ -121,7 +121,7 @@
       <div class="modal-body relative p-4 flex flex-col">
             <div class="flex flex-row">
           <h4 class="m-3">Data:</h4>
-          <input type="date" class="w-full h-10
+          <input #data type="text" value="{{eventoSelecionado.data}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -137,7 +137,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3">Local:</h4>
-          <input type="text" class="w-full h-10
+          <input #local type="text" value="{{eventoSelecionado.local}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -161,7 +161,7 @@
         </button>
         <button type="button"
           class="inline-block mx-1 px-6 py-2.5 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-          data-bs-dismiss="modal">
+          data-bs-dismiss="modal" (click)="editEvent(data.value, local.value)" >
           Salvar
         </button>
       </div>

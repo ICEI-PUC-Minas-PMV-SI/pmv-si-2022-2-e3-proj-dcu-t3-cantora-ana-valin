@@ -1,3 +1,4 @@
+import { CentralFas } from './../models/centralFas.model';
 import { Mensagem } from './../models/mensagens.model';
 import { Router, RouterModule } from '@angular/router';
 import { RedesSociais } from './../models/redesSociais.model';
@@ -68,6 +69,12 @@ export class AppService {
       );
   }
 
+  deleteRedeSocial(redeSocial: RedesSociais): Observable<RedesSociais[]>{
+    let endPoint = `/redessociais/${redeSocial.id}` ;
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Rede social excluida com sucesso'))
+    return this.getAgenda()
+  }
+
   hasLogin$(): Observable<boolean>{
     if(this.hasLogin.value){
       this.hasLogin.next(true)
@@ -90,18 +97,16 @@ export class AppService {
   }
 
   editAgenda(id: string, agenda: Agenda) : Observable<Agenda> {
-    return this.httpClient.patch<Agenda>(`${this.url}/agenda/${id}`, agenda, httpOptions)
+    return this.httpClient.put<Agenda>(`${this.url}/agenda/${id}`, agenda, httpOptions)
       .pipe(
         tap(_ => alert('Evento editado com sucesso'))
       );
   }
 
-  deleteAgenda(agenda: Agenda){
+  deleteAgenda(agenda: Agenda): Observable<Agenda[]>{
     let endPoint = `/agenda/${agenda.id}` ;
-    this.httpClient.delete(this.url + endPoint)
-      .pipe(
-        tap(_ => alert('Evento excluido com sucesso'))
-      );
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Evento excluido com sucesso'))
+    return this.getAgenda()
   }
 
   getMusicas(): Observable<Musicas[]> {
@@ -146,7 +151,7 @@ export class AppService {
   }
 
   editContato(contato: Contato) : Observable<Contato> {
-    return this.httpClient.patch<Contato>(`${this.url}/contato/${contato.id}`, Contato, httpOptions)
+    return this.httpClient.patch<Contato>(`${this.url}/contato/${contato.id}`, contato, httpOptions)
       .pipe(
         tap(_ => alert('Contato editado com sucesso'))
       );
@@ -158,6 +163,56 @@ export class AppService {
 
   getDepoimento(): Observable<Mensagem[]> {
     return this.httpClient.get<Mensagem[]>(`${this.url}/depoimento`);
+  }
+
+  getDepoimentoAprovado(): Observable<Mensagem[]> {
+    return this.httpClient.get<Mensagem[]>(`${this.url}/depoimentoAprovado`);
+  }
+
+  addDepoimento(depoimento: Mensagem) : Observable<Mensagem> {
+    return this.httpClient.post<Mensagem>(`${this.url}/depoimento`, depoimento, httpOptions)
+      .pipe(
+        tap(_ => alert('Depoimento postado com sucesso'))
+      );
+  }
+
+  addMensagem(mensagem: Mensagem) : Observable<Mensagem> {
+    return this.httpClient.post<Mensagem>(`${this.url}/mensagem`, mensagem, httpOptions)
+      .pipe(
+        tap(_ => alert('Mensagem postada com sucesso'))
+      );
+  }
+
+  addFa(fa: CentralFas) : Observable<CentralFas> {
+    return this.httpClient.post<CentralFas>(`${this.url}/centralFas`, fa, httpOptions)
+      .pipe(
+        tap(_ => alert('Fã adicionado com sucesso'))
+      );
+  }
+
+  deleteMensagem(mensagem: Mensagem): Observable<Mensagem[]> {
+    let endPoint = `/mensagem/${mensagem.id}` ;
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Mensagem excluido com sucesso'))
+    return this.getMensagem()
+  }
+
+  aprovarDepoimento(depoimento: Mensagem) : Observable<Mensagem> {
+    return this.httpClient.post<Mensagem>(`${this.url}/depoimentoAprovado`, depoimento, httpOptions)
+      .pipe(
+        tap(_ => alert('Depoimento postado com sucesso'))
+      );
+  }
+
+  deleteDepoimento(depoimento: Mensagem): Observable<Mensagem[]> {
+    let endPoint = `/depoimento/${depoimento.id}` ;
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
+    return this.getDepoimento()
+  }
+
+  deleteDepoimentoAprovado(depoimento: Mensagem): Observable<Mensagem[]> {
+    let endPoint = `/depoimentoAprovado/${depoimento.id}` ;
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
+    return this.getDepoimentoAprovado()
   }
 
 }

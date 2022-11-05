@@ -18,7 +18,7 @@
           <div class="flex justify-center flex-wrap" *ngIf="!!hasLogin">
             <button type="button"
             class="shrink-0 inline-block m-1 px-3 py-2.5 w-20 h-10 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
-            data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1">
+            data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable1" (click)="musicaSelecionada = musica">
             Editar
           </button>
           <button type="button"
@@ -211,7 +211,7 @@
 
 <!-- editar modal -->
 
-<div
+<div *ngIf="musicaSelecionada != undefined"
   class="font-nunito modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
   id="exampleModalCenteredScrollable1" tabindex="-1" aria-labelledby="exampleModalCenteredScrollable1" aria-modal="true"
   role="dialog">
@@ -245,7 +245,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">Nome:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.title}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -261,7 +261,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">URL Apple:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.links.appleUrl}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -277,7 +277,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">URL Deezer:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.links.deezerUrl}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -293,7 +293,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">URL Spotify:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.links.spotifyUrl}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -309,7 +309,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">URL Tidal:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.links.tidalUrl}}" class="w-full h-10
           px-3
           py-1.5
           text-base
@@ -325,7 +325,7 @@
         </div>
         <div class="flex flex-row">
           <h4 class="m-3 w-36">URL Youtube:</h4>
-          <input type="text" class="w-full h-10
+          <input type="text" value="{{musicaSelecionada.links.youtubeUrl}}" class="w-full h-10
           px-3
           py-1.5
           text-base
