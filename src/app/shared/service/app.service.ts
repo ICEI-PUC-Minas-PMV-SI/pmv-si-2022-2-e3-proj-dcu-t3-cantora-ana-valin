@@ -127,12 +127,10 @@ export class AppService {
       );
   }
 
-  deleteMusicas(musica: Musicas){
+  deleteMusicas(musica: Musicas): Observable<Musicas[]>{
     let endPoint = `/musicas/${musica.id}` ;
-    this.httpClient.delete(this.url + endPoint)
-      .pipe(
-        tap(_ => alert('Musica excluida com sucesso'))
-      );
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Mensagem excluido com sucesso'))
+    return this.getMusicas()
   }
 
   getBiografia(): Observable<Biografia[]> {
@@ -155,6 +153,10 @@ export class AppService {
       .pipe(
         tap(_ => alert('Contato editado com sucesso'))
       );
+  }
+
+  getFa(): Observable<CentralFas[]> {
+    return this.httpClient.get<CentralFas[]>(`${this.url}/centralFas`);
   }
 
   getMensagem(): Observable<Mensagem[]> {
@@ -211,8 +213,16 @@ export class AppService {
 
   deleteDepoimentoAprovado(depoimento: Mensagem): Observable<Mensagem[]> {
     let endPoint = `/depoimentoAprovado/${depoimento.id}` ;
-    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
+    this.httpClient.delete( endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
     return this.getDepoimentoAprovado()
+  }
+
+  uploadImage(image: File): Observable<any> {
+    const formData = new FormData();
+
+    formData.append('image', image);
+
+    return this.httpClient.post('/api/v1/image-upload', formData);
   }
 
 }

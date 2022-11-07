@@ -91,7 +91,7 @@
                   <div class="text-center">
                     <h3 class="text-4xl font-nunito text-gray-900">CENTRAL DE FÃS</h3>
                     <h2 class="text-xl p-6 font-bold text-center">Deseja baixar os dados de cadastro do seus fãs?</h2>
-                    <button type="button"
+                    <button type="button" (click)="exportexcel()"
                     class="inline-block m-1 lg:mr-3.5 px-6 py-2 w-26 h-12 bg-amber-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-700 hover:shadow-lg focus:bg-amber-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-amber-800 active:shadow-lg transition duration-150 ease-in-out"
                     data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">
                     Gerar relatório
@@ -112,6 +112,27 @@
         </div>
       </div>
     </div>
+
+    <div *ngIf="!!fas" class="">
+      <table #excel id="excel-table" class="table invisible">
+          <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Celular</th>
+              </tr>
+          </thead>
+          <tbody>
+
+              <tr *ngFor='let fa of fas'>
+                  <td>{{fa.name}}</td>
+                  <td>{{fa.email}}</td>
+                  <td>{{fa.cel}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
   </section>
 
 </div>

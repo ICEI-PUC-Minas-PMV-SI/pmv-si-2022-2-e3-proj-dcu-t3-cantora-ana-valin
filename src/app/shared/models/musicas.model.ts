@@ -1,7 +1,7 @@
 export class Musicas {
   id!: string;
   title!: string;
-  imgUrl!: string;
+  imgUrl!: string | undefined;
   links!: Link;
   foto!: Foto;
 }

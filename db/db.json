@@ -46,7 +46,7 @@
   "musicas": [
     {
       "id": "1",
-      "title": "Sendo assim - Ana Valin",
+      "title": "testaando",
       "imgUrl": "../assets/musica1.png",
       "links": {
         "appleUrl": "https:/www.apple.com/",
@@ -116,12 +116,6 @@
       "cel": "31994494994"
     },
     {
-      "email": "teste",
-      "nome": "luiz@luiz.com",
-      "id": "i2nNHfm",
-      "cel": "3199999999"
-    },
-    {
       "email": "test",
       "nome": "test",
       "id": "apA_AG0",
@@ -156,7 +150,7 @@
     {
       "id": "1",
       "cel": "31333333333",
-      "email": "test@test.com"
+      "email": ""
     }
   ],
   "login": [
