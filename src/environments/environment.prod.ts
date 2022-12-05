@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://fake-server-app-test.herokuapp.com'
+  apiUrl: 'http://db-json-ana-valin-2mgabznnf-luizrubiolicosta.vercel.app/'
 };

@@ -129,7 +129,7 @@ export class AppService {
 
   deleteMusicas(musica: Musicas): Observable<Musicas[]>{
     let endPoint = `/musicas/${musica.id}` ;
-    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Mensagem excluido com sucesso'))
+    this.httpClient.delete(this.url + endPoint).subscribe(()=> alert('Musica excluida com sucesso'))
     return this.getMusicas()
   }
 
