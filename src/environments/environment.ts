@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: true,
-  apiUrl: 'http://db-json-ana-valin-2mgabznnf-luizrubiolicosta.vercel.app/'
+  apiUrl: 'https://db-json-ana-valin-2mgabznnf-luizrubiolicosta.vercel.app'
 };
 
 
