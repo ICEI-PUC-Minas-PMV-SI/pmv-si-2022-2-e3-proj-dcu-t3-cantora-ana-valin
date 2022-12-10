@@ -1,11 +1,11 @@
-/home  https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/
-/agenda      https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/agenda
-/biografia   https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/biografia
-/musicas       https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/musicas
-/centralFas     https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/centralFas
-/contato        https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/contato
-/depoimentos        https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/depoimentos
-/login              https://6393dd91a883532a38438635--anavalin.netlify.app/biografia/login
+/home.component.html  / 301
+/agenda.component.html      /agenda 301
+/biografia.component.html   /biografia 301
+/musicas.component.html       /musicas 301
+/centralFas.component.html     /centralFas 301
+/contato.component.html        /contato 301
+/depoimentos.component.html        /depoimentos 301
+/login.component.html              /login 301
 
 
 
