@@ -213,7 +213,7 @@ export class AppService {
 
   deleteDepoimentoAprovado(depoimento: Mensagem): Observable<Mensagem[]> {
     let endPoint = `/depoimentoAprovado/${depoimento.id}` ;
-    this.httpClient.delete( endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
+    this.httpClient.delete( this.url + endPoint).subscribe(()=> alert('Depoimento excluido com sucesso'))
     return this.getDepoimentoAprovado()
   }
 
