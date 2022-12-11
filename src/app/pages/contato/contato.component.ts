@@ -33,7 +33,7 @@ export class ContatoComponent implements OnInit {
     )
   }
 
-  editContato(email: string, cel: string) {
+  editContato(email?: string, cel?: string) {
     let contato = {email: email, cel: cel, id:this.contato[0].id}
     this.service.editContato(contato).subscribe(() =>  this.getContato())
   }

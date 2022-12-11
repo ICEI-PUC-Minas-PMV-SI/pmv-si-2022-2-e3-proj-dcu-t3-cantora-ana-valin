@@ -96,7 +96,7 @@
   [muted]="true" preload="metadata">
     <source src="../assets/contato.mp4">
   </video>
-              <div class="absolute bg-[#91633f] bg-opacity-40 rounded-lg text-amber-50 p-6">
+              <div *ngIf="contato.length" class="absolute bg-[#91633f] bg-opacity-40 rounded-lg text-amber-50 p-6">
                 <div class="flex items-start mb-8">
                   <div class="shrink-0">
                     <div class="p-4 bg-black rounded-md shadow-md w-14 h-14 flex items-center justify-center">
