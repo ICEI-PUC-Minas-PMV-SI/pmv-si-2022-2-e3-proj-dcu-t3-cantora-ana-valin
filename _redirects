@@ -1,11 +1,11 @@
-src/app/pages/home.component.html  /     301
-src/app/pages/agenda.component.html      /agenda    301
-src/app/pages/biografia.component.html   /biografia     301
-src/app/pages/musicas.component.html       /musicas     301
-src/app/pages/centralFas.component.html     /centralFas     301
-src/app/pages/contato.component.html        /contato    301
-src/app/pages/depoimentos.component.html        /depoimentos    301
-src/app/pages/login.component.html              /login  301
+/home.component.html  /     301
+/agenda.component.html      /agenda    301
+/biografia.component.html   /biografia     301
+/musicas.component.html       /musicas     301
+/centralFas.component.html     /centralFas     301
+/contato.component.html        /contato    301
+/depoimentos.component.html        /depoimentos    301
+/login.component.html              /login  301
 
 
 
